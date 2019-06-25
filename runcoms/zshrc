@@ -11,4 +11,23 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Enable completion for awscli
 source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
+
+# proxy configuration
+function enable_proxy() {
+  if [ -e "${HOME}/.proxyrc" ]; then
+    source "${HOME}/.proxyrc"
+  fi
+
+  if [ -n "${http_proxy}" ]; then
+    git config --global http.proxy $http_proxy
+  fi
+
+  if [ -n "${https_proxy}" ]; then
+    git config --global https.proxy $http_proxy
+  fi
+}
+
+enable_proxy
