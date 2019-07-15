@@ -31,9 +31,14 @@ export PATH="$NODENV_ROOT/bin:$PATH"
 if command -v nodenv 1>/dev/null 2>&1; then
   eval "$(nodenv init -)"
 fi
+if [ -e /usr/local/opt/nodenv/completions/nodenv.zsh ]; then
+  source /usr/local/opt/nodenv/completions/nodenv.zsh
+fi
 
 # Enable completion for awscli
-source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
+if [ -e /usr/local/share/zsh/site-functions/aws_zsh_completer.sh ]; then
+  source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
+fi
 
 # proxy configuration
 function enable_proxy() {
