@@ -40,6 +40,11 @@ if [ -e /usr/local/share/zsh/site-functions/aws_zsh_completer.sh ]; then
   source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
 fi
 
+# enable completion for terraform
+if [ -x /usr/local/bin/terraform ]; then
+  complete -o nospace -C /usr/local/bin/terraform terraform
+fi
+
 # proxy configuration
 function enable_proxy() {
   if [ -e "${HOME}/.proxyrc" ]; then
