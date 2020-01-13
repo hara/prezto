@@ -78,3 +78,6 @@ function enable_proxy() {
 }
 
 enable_proxy
+
+# Aliases
+alias vim='nvim'
