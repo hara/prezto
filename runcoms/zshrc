@@ -21,3 +21,13 @@ autoload -U +X bashcompinit && bashcompinit
 
 # for Java
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+
+# Nodenv
+export NODENV_ROOT="${HOME}/.nodenv"
+export PATH="${NODENV_ROOT}/bin:${PATH}"
+if (( ${+commands[nodenv]} )); then
+  eval "$(nodenv init -)"
+fi
+if [[ -e /usr/local/opt/nodenv/completions/nodenv.zsh ]]; then
+  source /usr/local/opt/nodenv/completions/nodenv.zsh
+fi
