@@ -11,4 +11,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Enable custom completion
+fpath=(~/.zfunc $fpath)
+autoload -Uz compinit && compinit -i
+
+# Enable bash style completion
+autoload -U +X bashcompinit && bashcompinit
+
+# for Java
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
