@@ -12,15 +12,17 @@ fi
 
 # Customize to your needs...
 
+path=(
+  ~/.local/bin(N-/)
+  $path
+)
+
 # Enable custom completion
 fpath=(~/.zfunc $fpath)
 autoload -Uz compinit && compinit -i
 
 # Enable bash style completion
 autoload -U +X bashcompinit && bashcompinit
-
-# for Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 
 # Nodenv
 export NODENV_ROOT="${HOME}/.nodenv"
@@ -31,3 +33,7 @@ fi
 if [[ -e /usr/local/opt/nodenv/completions/nodenv.zsh ]]; then
   source /usr/local/opt/nodenv/completions/nodenv.zsh
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="${HOME}/.sdkman"
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
