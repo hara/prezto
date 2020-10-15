@@ -12,8 +12,15 @@ fi
 
 # Customize to your needs...
 
+# Local settings
+if [[ -e ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
+
+# PATH
 path=(
   ~/.local/bin(N-/)
+  ~/.ebcli-virtual-env/executables
   $path
 )
 
